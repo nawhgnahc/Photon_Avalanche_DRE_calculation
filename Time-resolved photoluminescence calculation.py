@@ -58,7 +58,7 @@ def tr_rate_equation_simul_ext(c_Tm, f_ab_1, f_ab_2, f_s3, f_q22, f_q23,
     
     P_pump_array_power = np.linspace(p_start, p_end, num=num_pump)  # The base-10 logarithm of pumping power density
 
-    P_pump_array = 10**(P_pump_array_power) # Pumping power density in [W/m2]
+    P_pump_array_i = 10**(P_pump_array_power) # Pumping power density in [W/m2]
     
     w2_r = 162.60                       # Radiative relaxation rate constant at the 3F4 state in [1/s]
     w2_nr = 162.60*f_w2_nr+ 0.00239     # Non-radiative relaxation rate constant at the 3F4 state in [1/s]  
@@ -76,7 +76,7 @@ def tr_rate_equation_simul_ext(c_Tm, f_ab_1, f_ab_2, f_s3, f_q22, f_q23,
     hp=6.626e-34                        # Planck constant in [J*s]
     c=2.998e8                           # the speed of light in [m/s]
     Eph   = v_pump*1e2*c*hp             # photon energy in [J]
-    Fai_pump_1 = P_pump_array/Eph[0]    # photon incident flux at Gaussian peak in [#/m^2/s]
+    Fai_pump_1 = P_pump_array_i/Eph[0]    # photon incident flux at Gaussian peak in [#/m^2/s]
 
     ab_cs_12_1 = f_ab_1*0.12e-25        # the ground-state absorption cross section for 3H6-3H4 transition in [cm^2]
     ab_cs_23_1 = f_ab_2*3.2e-25         # tne excited-stete absorption cross section for 3F4-3H4 transition in [cm^2]
