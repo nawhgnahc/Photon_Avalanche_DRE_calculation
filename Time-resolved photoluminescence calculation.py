@@ -84,7 +84,7 @@ def tr_rate_equation_simul_ext(c_Tm, f_ab_1, f_ab_2, f_s3, f_q22, f_q23,
     s3 = f_s3*(1.6*c_Tm**2)*1000.0      # the cross relaxation rate parameter in [1/s]
 
     Q22 = f_q22*((0.32*c_Tm**3)/(c_Tm**2 + 4.3**2))*1000.0 # energy tranfser upconversion rate parameter (3F4 + 3F4 -> 3H6 + 3H4) in [1/s]
-    Q23 = f_q23*((0.09*c_Tm**3)/(c_Tm**2 + 4.3**2))*1000.0 # energy tranfser rate parameter (3F4 + 3F4 -> 3H6 + 3F4) in [1/s]
+    Q23 = f_q23*((0.09*c_Tm**3)/(c_Tm**2 + 4.3**2))*1000.0 # energy tranfser rate parameter (3F4 + 3F4 -> 3H6 + 3F5) in [1/s]
 
     index = 0
     
