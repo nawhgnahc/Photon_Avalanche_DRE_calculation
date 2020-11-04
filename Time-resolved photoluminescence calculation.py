@@ -156,8 +156,6 @@ def tr_rate_equation_simul_ext(c_Tm, f_ab_1, f_ab_2, f_s3, f_q22, f_q23,
             
             time_array_i.append(time_now)
             population_array_i.append(data_now)
-
-            k += 1
         
         time_array.append(np.array(time_array_i))
         population_array.append(np.array(population_array_i))
