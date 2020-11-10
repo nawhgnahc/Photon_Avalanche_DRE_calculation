@@ -82,9 +82,12 @@ def tr_rate_equation_simul_ext(c_Tm, f_ab_1, f_ab_2, f_s3, f_q22, f_q23,
     ab_cs_23_1 = f_ab_2*3.2e-25         # tne excited-stete absorption cross section for 3F4-3H4 transition in [cm^2]
 
     s3 = f_s3*(1.6*c_Tm**2)*1000.0      # the cross relaxation rate parameter in [1/s]
-
-    Q22 = f_q22*((0.32*c_Tm**3)/(c_Tm**2 + 4.3**2))*1000.0 # energy tranfser upconversion rate parameter (3F4 + 3F4 -> 3H6 + 3H4) in [1/s]
-    Q23 = f_q23*((0.09*c_Tm**3)/(c_Tm**2 + 4.3**2))*1000.0 # energy tranfser rate parameter (3F4 + 3F4 -> 3H6 + 3F5) in [1/s]
+     
+    a_uc  = f_q22*0.32*1000             # A coefficient for energy trasfer rate parameter (3F4 + 3F4 -> 3H6 + 3F5) in [1/s]
+    a_inv = f_q23*0.09*1000             # energy tranfser upconversion rate parameter (3F4 + 3F4 -> 3H6 + 3H4) in [1/s]
+    
+    Q22 = (a_uc*c_Tm**3)/(c_Tm**2 + 4.3**2) # energy tranfser rate parameter (3F4 + 3F4 -> 3H6 + 3F5) in [1/s]
+    Q23 = (a_inv*c_Tm**3)/(c_Tm**2 + 4.3**2) # energy tranfser upconversion rate parameter (3F4 + 3F4 -> 3H6 + 3H4) in [1/s]
 
     index = 0
     
@@ -243,6 +246,7 @@ ax1.set_ylabel(r'Emission intensity (a.u)' , fontsize = fontsize)
 ax1.legend(markerscale=1, loc=label_loc ,frameon=False, numpoints=1, ncol=2, fontsize = fontsize)
 ax1.set_xscale("log")
 ax1.set_yscale("log")
-ax1.set_xlim(10**7.5, 10**9.134450)
+ax1.set_xlim(10**0.2, 10**2.134450)
+ax1.set_ylim(10**-7, 10**1)
 plt.show()
       
