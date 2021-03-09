@@ -204,9 +204,9 @@ f_w3_nr_array = np.array([0.6, 6.3, 0.5, 0.0, 14.0, 7.2])   # a factor array mul
 
 
 dt_coeff= 0.4                       # a factor for adaptive time step size
-time_target = 1.0                   # calculation time for steady state under laser excitation in [s]
+time_target = 0.5                   # calculation time for steady state under laser excitation in [s]
 time_target_2 = time_target + 0.005 # calculation time for PL decay lifetime calculation
-num_pump = 43                       # the size of pumping power array
+num_pump = 22                       # the size of pumping power array
 p_start = 7.0                       # the base-10 logarithm of the lowest pumping power density
 p_end = 9.1                         # the base-10 logarithm of the highest pumping power density
 time_array = []                     # array of time data for all the samples in [s] 
@@ -235,13 +235,13 @@ for i in np.arange(len(c_Tm_array)):
     population_3H4_gaussian_array.append(y2_1)
     
     # plotting of the power-dependent luminescence of ANPs
-    ax1.plot(x2, c_Tm*y2_1, label = label_array[i]) 
+    ax1.plot(x2/10**7, c_Tm*y2_1, label = label_array[i]) 
 
 
 fontsize = 8
 label_loc = 2
 
-ax1.set_xlabel(r'Excitation Power (W/cm$^2$)', fontsize = fontsize)
+ax1.set_xlabel(r'Excitation Power (kW/cm$^2$)', fontsize = fontsize)
 ax1.set_ylabel(r'Emission intensity (a.u)' , fontsize = fontsize)
 ax1.legend(markerscale=1, loc=label_loc ,frameon=False, numpoints=1, ncol=2, fontsize = fontsize)
 ax1.set_xscale("log")
